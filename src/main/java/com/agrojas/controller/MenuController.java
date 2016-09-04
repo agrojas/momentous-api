@@ -1,16 +1,11 @@
 package com.agrojas.controller;
 
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.agrojas.model.Menu;
 import com.agrojas.service.MenuService;
 
 /**
@@ -22,6 +17,7 @@ import com.agrojas.service.MenuService;
 @RestController
 public class MenuController {
 	
+	@Autowired(required=false)
 	private MenuService menuService;
 	
 	public MenuController() {
@@ -29,9 +25,9 @@ public class MenuController {
 		this.menuService.load();
 	}
 	
-	@RequestMapping(value="/", method = RequestMethod.GET)
-	public List<Menu> getMenus(@RequestParam(value="groupBy", defaultValue="price") String groupBy){
-		List<Menu> result = this.menuService.getMenuListGroupBy(groupBy);		
-		return result;
+	@RequestMapping(value="/menus", method = RequestMethod.GET)
+	public Response getMenus(@RequestParam(value="groupBy", defaultValue="") String groupBy){
+		Response response = this.menuService.getMenuListGroupBy(groupBy);		
+		return response;
 	}
 }

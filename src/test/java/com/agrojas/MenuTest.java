@@ -2,148 +2,109 @@ package com.agrojas;
 
 import static org.junit.Assert.*;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.junit.Test;
+
+import com.agrojas.exception.InvalidDateException;
+import com.agrojas.exception.InvalidNameException;
+import com.agrojas.exception.InvalidPriceException;
+import com.agrojas.model.Menu;
+import com.agrojas.model.Price;
 
 public class MenuTest {
 
 	@Test
-	public void testMenu() {
-		fail("Not yet implemented");
+	public void testNewMenuNameIsEmpty() {
+		Menu menuTest = new Menu(); 
+		String empty = new String();
+		assertEquals(menuTest.getName(),empty);
 	}
 
 	@Test
-	public void testMenuStringStringPriceDateDateTimestampInt() {
-		fail("Not yet implemented");
+	public void testGetValidName() {
+		Menu menuTest = new Menu(); 
+		String name = "Menu 1";
+		try {
+			menuTest.setName(name);
+		} catch (InvalidNameException e) {
+			e.printStackTrace();
+		}
+		assertEquals(menuTest.getName(),name);
+	}
+
+	
+	@Test(expected = InvalidNameException.class)  
+	public void testSetInvalidName() throws InvalidNameException {
+		Menu menuTest = new Menu(); 
+		String name = "";
+		menuTest.setName(name);
 	}
 
 	@Test
-	public void testGetName() {
-		fail("Not yet implemented");
+	public void testNewMenuGetPriceIsEmpty() {
+		Menu menuTest = new Menu();
+		assertNull(menuTest.getPrice());
 	}
 
 	@Test
-	public void testSetName() {
-		fail("Not yet implemented");
+	public void testSetValidPrice() {
+		Menu menuTest = new Menu();
+		Price price = new Price(10, "$");
+		try {
+			menuTest.setPrice(price);
+		} catch (InvalidPriceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		assertEquals(menuTest.getPrice(), price);
 	}
 
-	@Test
-	public void testGetDescription() {
-		fail("Not yet implemented");
+	@Test(expected = InvalidPriceException.class)  
+	public void testSetInvalidPrice() throws InvalidPriceException {
+		Menu menuTest = new Menu();
+		Price price = new Price(-1, "$");
+		menuTest.setPrice(price);
 	}
-
-	@Test
-	public void testSetDescription() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetPrice() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetPrice() {
-		fail("Not yet implemented");
-	}
-
+	
 	@Test
 	public void testGetFrom() {
-		fail("Not yet implemented");
+		Menu menuTest = new Menu();
+		Date date = new Date();
+		menuTest.setFrom(date);
+		assertEquals(menuTest.getFrom(), date);
 	}
+//
+//	@Test(expected = InvalidDateException.class)  
+//	public void testSetInvalidFrom() throws InvalidDateException {
+//		DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+//		Date date = new Date();
+//		Menu menuTest = new Menu();
+//		menuTest.setFrom(dateFormat.format(date));
+//	}
+//
+//	
+//	@Test
+//	public void testGetHour() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testSetHour() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testGetRanking() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testSetRanking() {
+//		fail("Not yet implemented");
+//	}
 
-	@Test
-	public void testSetFrom() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetTo() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetTo() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetHour() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetHour() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetRanking() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetRanking() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testObject() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetClass() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testHashCode() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testEquals() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testClone() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testToString() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testNotify() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testNotifyAll() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testWaitLong() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testWaitLongInt() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testWait() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testFinalize() {
-		fail("Not yet implemented");
-	}
 
 }

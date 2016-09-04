@@ -4,31 +4,23 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.agrojas.service.MenuService;
+
 public class MenuServiceTest {
 
 	@Test
-	public void testMenuService() {
-		fail("Not yet implemented");
+	public void testMenuServiceIsEmpty() {
+		MenuService menuService = new MenuService();
+		assertEquals(menuService.getMenuList().size(), 0);
 	}
 
 	@Test
 	public void testLoad() {
-		fail("Not yet implemented");
+		MenuService menuService = new MenuService();
+		menuService.load();
+		assertEquals(menuService.getMenuList().size(), 10);
 	}
 
-	@Test
-	public void testGetMenuList() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetMenu() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetMenuListGroupBy() {
-		fail("Not yet implemented");
-	}
+	
 
 }

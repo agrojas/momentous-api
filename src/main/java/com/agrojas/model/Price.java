@@ -51,5 +51,12 @@ public class Price {
 	public void setCurrency(String currency){
 		this.currency = currency;
 	}
+
+	/**
+	 * @return
+	 */
+	public boolean validate() {
+		return (this.value < 0 || this.currency.isEmpty());
+	}
 	
 }

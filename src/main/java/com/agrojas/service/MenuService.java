@@ -3,6 +3,10 @@ package com.agrojas.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.agrojas.controller.Response;
+import com.agrojas.exception.InvalidDataException;
+import com.agrojas.filter.FilterFactory;
+import com.agrojas.filter.IFilterable;
 import com.agrojas.model.Menu;
 
 
@@ -24,7 +28,11 @@ public class MenuService {
 	public void load(){
 		MenuMock mock = new MenuMock();
 		int numMocks = 10;
-		this.menuList = mock.generate(numMocks);
+		try {
+			this.menuList = mock.generate(numMocks);
+		} catch (InvalidDataException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -45,12 +53,11 @@ public class MenuService {
 	 * @param groupBy
 	 * @return
 	 */
-	public List<Menu> getMenuListGroupBy(String groupBy) {
-		List<Menu> menuListGroupBy = new ArrayList<>();
-//		ListIterator<Menu> menuListIterator = this.menuList.listIterator();
-//		while (menuListIterator.hasNext()) {
-//			if ()
-//		}
-		return menuListGroupBy;
+	public Response getMenuListGroupBy(String groupBy) {
+		IFilterable filter = FilterFactory.getFilter(groupBy);
+		Response response = new Response();
+		response.setStatus("SUCCESS");
+		response.setResults(filter.filter(this.menuList));
+		return response;
 	}
 }
