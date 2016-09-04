@@ -1,31 +1,56 @@
 package com.agrojas.service;
 
-import java.sql.Date;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.agrojas.model.Menu;
-import com.agrojas.model.Price;
+
 
 /**
  * @author agu
  *
  */
-
-
-@RestController
 public class MenuService {
-	@RequestMapping(value="/", method = RequestMethod.GET)
-	public List<Menu> getMenus(){
-		Menu menu = new Menu("menu","de",new Price(1,"$"),new Date(2313123), 
-				new Date(2313123),  new Timestamp(12312), 1);
-		List<Menu> result = new ArrayList<Menu>();
-		result.add(menu);
-		return result;
+
+	private List<Menu> menuList;
+	
+	public MenuService(){
+		this.menuList = new ArrayList<Menu>();
+	}
+	
+	/**
+	 * Este servicio se deberia conectar a una base de datos para obtener los menues existentes
+	 */
+	public void load(){
+		MenuMock mock = new MenuMock();
+		int numMocks = 10;
+		this.menuList = mock.generate(numMocks);
+	}
+
+	/**
+	 * @return the menuList
+	 */
+	public List<Menu> getMenuList() {
+		return menuList;
+	}
+
+	/**
+	 * @param menuList the menuList to set
+	 */
+	public void setMenu(Menu menu) {
+		this.menuList.add(menu);
+	}
+
+	/**
+	 * @param groupBy
+	 * @return
+	 */
+	public List<Menu> getMenuListGroupBy(String groupBy) {
+		List<Menu> menuListGroupBy = new ArrayList<>();
+//		ListIterator<Menu> menuListIterator = this.menuList.listIterator();
+//		while (menuListIterator.hasNext()) {
+//			if ()
+//		}
+		return menuListGroupBy;
 	}
 }
