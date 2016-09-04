@@ -15,16 +15,14 @@ You need git to clone the angular-seed repository. You can get git from
 [http://git-scm.com/](http://git-scm.com/).
 
 You need java to run 
-[http://git-scm.com/](http://git-scm.com/).
+[http://git-scm.com/](https://www.java.com).
 
 You need maven
-[http://git-scm.com/](http://git-scm.com/).
-
-
+[http://git-scm.com/](https://maven.apache.org/).
 
 ### Clone momentous-api
 
-Clone the momentous-api repository using [git][git]:
+Clone the momentous-api repository using [git](http://git-scm.com/):
 
 ```
 git clone https://github.com/agrojas/momentous-api.git
@@ -72,7 +70,7 @@ mvn test
 
 ### Travis CI
 
-[Travis CI](travis) is a continuous integration service, which can monitor GitHub for new commits
+[Travis CI](https://travis-ci.com) is a continuous integration service, which can monitor GitHub for new commits
 to your repository and execute scripts such as building the app or running tests. The angular-seed
 project contains a Travis configuration file, `.travis.yml`, which will cause Travis to run your
 tests when you push to GitHub.
@@ -84,3 +82,8 @@ instruction on how to do this.
 ## Deploy
 
 ### Heroku
+```
+heroku create
+git push heroku master
+heroku open
+```
