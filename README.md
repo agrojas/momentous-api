@@ -8,6 +8,10 @@
 
 To get you started you can simply clone the momentous-api repository and install the dependencies:
 
+### Use API
+
+You can use API in [momentous-api.herokuapp.com/menus] (momentous-api.herokuapp.com/menus) 
+
 
 ### Prerequisites
 
@@ -48,13 +52,57 @@ mvn install
 ## Directory Layout
 
 ```
-asdsad
+   .
+   |-src
+   |---main
+   |-----java
+   |-------com
+   |---------agrojas
+   |-----------controller
+   |-----------exception
+   |-----------filter
+   |-----------model
+   |-----------service
+   |-----resources
+   |-------static
+   |-------templates
+   |---test
+   |-----java
+   |-------com
+   |---------agrojas
+   |-target
+   |---classes
+   |-----com
+   |-------agrojas
+   |---------controller
+   |---------exception
+   |---------filter
+   |---------model
+   |---------service
+   |-----META-INF
+   |-------maven
+   |---------com.agrojas
+   |-----------momentous-api
+   |---generated-sources
+   |-----annotations
+   |---generated-test-sources
+   |-----test-annotations
+   |---maven-status
+   |-----maven-compiler-plugin
+   |-------compile
+   |---------default-compile
+   |-------testCompile
+   |---------default-testCompile
+   |---surefire-reports
+   |---test-classes
+   |-----com
+   |-------agrojas
+
 ```
 
 
 ## Testing
 
-There are two kinds of tests in the angular-seed application: Unit tests and end-to-end tests.
 
 ### Running Unit Tests
 
