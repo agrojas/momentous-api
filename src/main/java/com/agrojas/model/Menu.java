@@ -3,8 +3,8 @@ package com.agrojas.model;
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import com.agrojas.exception.InvalidDateException;
 import com.agrojas.exception.InvalidDescriptionException;
@@ -17,21 +17,25 @@ public class Menu {
 
 	private String name;
 	private String description;
+	private List<String> days;
 	private Price price;
 	@JsonFormat(pattern="yyyy-MM-dd")
-	private Date from;
+	private Date dateFrom;
 	@JsonFormat(pattern="yyyy-MM-dd")
-	private Date to;
-	private Time hour;
+	private Date dateTo;
+	private Time timeFrom;
+	private Time timeTo;
 	private int ranking;
 
 	public Menu() {
 		this.name = "";
 		this.description = "";
 		this.price = null;
-		this.from = null;
-		this.to= null;
-		this.hour = null;
+		this.days = null;
+		this.dateFrom = null;
+		this.dateTo= null;
+		this.timeFrom = null;
+		this.timeTo = null;
 		this.ranking = 1;
 	}
 
@@ -92,81 +96,42 @@ public class Menu {
 		this.price = price;
 	}
 
-	/**
-	 * @return the from
-	 */
-	public Date getFrom() {
-		return from;
-	}
-
-	/**
-	 * @param from
-	 */
-	public void setFrom(Date from) {
-		this.from = from;
-	}
 	
 	/**
 	 * @param from
 	 *            the from to set
 	 */
-	public void setFrom(String from) throws InvalidDateException {
+	public void setDateFrom(String from) throws InvalidDateException {
 		if (from == null) {
 			throw new InvalidDateException();
 		}
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		try {
-			this.from = (Date) sdf.parse(from);
+			this.dateFrom = (Date) sdf.parse(from);
 		} catch (ParseException ex) {
 			throw new InvalidDateException();
 		}
 
 	}
 
-	/**
-	 * @return the to
-	 */
-	public Date getTo() {
-		return to;
-	}
-
-	/**
-	 * @param from
-	 */
-	public void setTo(Date to) {
-		this.from = to;
-	}
 	
 	/**
 	 * @param to
 	 *            the to to set
 	 */
-	public void setTo(String to) throws InvalidDateException {
+	public void setDateTo(String to) throws InvalidDateException {
 		if (to == null) {
 			throw new InvalidDateException();
 		}
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		try {
-			this.to = sdf.parse(to);
+			this.dateTo = sdf.parse(to);
 		} catch (ParseException ex) {
 			throw new InvalidDateException();
 		}
 	}
 
-	/**
-	 * @return the hour
-	 */
-	public Time getHour() {
-		return hour;
-	}
-
-	/**
-	 * @param hour
-	 *            the hour to set
-	 */
-	public void setHour(String hour) {
-		this.hour = Time.valueOf(hour);
-	}
+	
 
 	/**
 	 * @return the ranking
@@ -185,6 +150,76 @@ public class Menu {
 			throw new InvalidRankingException();
 		}
 		this.ranking = ranking;
+	}
+	
+	/**
+	 * @return the dateFrom
+	 */
+	public Date getDateFrom() {
+		return dateFrom;
+	}
+
+	/**
+	 * @param dateFrom the dateFrom to set
+	 */
+	public void setDateFrom(Date dateFrom) {
+		this.dateFrom = dateFrom;
+	}
+
+	/**
+	 * @return the dateTo
+	 */
+	public Date getDateTo() {
+		return dateTo;
+	}
+
+	/**
+	 * @param dateTo the dateTo to set
+	 */
+	public void setDateTo(Date dateTo) {
+		this.dateTo = dateTo;
+	}
+
+	/**
+	 * @return the timeFrom
+	 */
+	public Time getTimeFrom() {
+		return timeFrom;
+	}
+
+	/**
+	 * @param timeFrom the timeFrom to set
+	 */
+	public void setTimeFrom(String hour) {
+		this.timeFrom = Time.valueOf(hour);
+	}
+
+	/**
+	 * @return the timeTo
+	 */
+	public Time getTimeTo() {
+		return timeTo;
+	}
+
+	/**
+	 * @param timeTo the timeTo to set
+	 */
+	public void setTimeTo(String timeTo) {
+		this.timeTo = Time.valueOf(timeTo);
+	}
+
+	/**
+	 * @return the days
+	 */
+	public List<String> getDays() {
+		return days;
+	}
+
+	/**
+	 * @param days the days to set
+	 */
+	public void setDays(List<String> days) {
+		this.days = days;
 	}
 
 }

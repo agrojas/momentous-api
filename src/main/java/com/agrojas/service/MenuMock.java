@@ -80,6 +80,15 @@ public class MenuMock {
 		return id % 5 + 1;
 	}
 	
+	/**
+	 * @return
+	 */
+	private List<String> getDays(int id) {
+		String[] days = {"MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY"};
+		List<String> result = new ArrayList<>();
+		result.add(days[id%7]);
+		return result;
+	}
 	
 	public List<Menu> generate(int numMocks) throws InvalidNameException, InvalidDescriptionException,
 			InvalidPriceException, InvalidDateException, InvalidRankingException{
@@ -90,12 +99,16 @@ public class MenuMock {
 			menu.setName(getName(i));
 			menu.setDescription(getDescription(i));
 			menu.setPrice(getPrice(i));
-			menu.setFrom(getFrom());
-			menu.setTo(getTo(i));
-			menu.setHour(getTime());
+			menu.setDays(getDays(i));
+			menu.setDateFrom(getFrom());
+			menu.setDateTo(getTo(i));
+			menu.setTimeFrom(getTime());
+			menu.setTimeTo(getTime());
 			menu.setRanking(getRanking(i));
 			mockList.add(menu);
 		}
 		return mockList;
 	}
+
+
 }

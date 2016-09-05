@@ -2,13 +2,10 @@ package com.agrojas;
 
 import static org.junit.Assert.*;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.junit.Test;
 
-import com.agrojas.exception.InvalidDateException;
 import com.agrojas.exception.InvalidNameException;
 import com.agrojas.exception.InvalidPriceException;
 import com.agrojas.model.Menu;
@@ -73,8 +70,8 @@ public class MenuTest {
 	public void testGetFrom() {
 		Menu menuTest = new Menu();
 		Date date = new Date();
-		menuTest.setFrom(date);
-		assertEquals(menuTest.getFrom(), date);
+		menuTest.setDateFrom(date);
+		assertEquals(menuTest.getDateFrom(), date);
 	}
 //
 //	@Test(expected = InvalidDateException.class)  
