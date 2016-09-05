@@ -77,9 +77,6 @@ mvn spring-boot:run
    |-----------service
    |-----resources
    |-------static
-   |---------css
-   |---------js
-   |-----------menu
    |---test
    |-----java
    |-------com
