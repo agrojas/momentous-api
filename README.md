@@ -10,7 +10,7 @@ To get you started you can simply clone the momentous-api repository and install
 
 ### Use API
 
-You can use API in [momentous-api.herokuapp.com](momentous-api.herokuapp.com) 
+You can use API in [https://momentous-api.herokuapp.com/menus](https://momentous-api.herokuapp.com/menus) 
 
 Group By options:
 ```
