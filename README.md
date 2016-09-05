@@ -19,7 +19,6 @@ momentous-api.herokuapp.com/menus?groupBy=<field>
 
 ```
 
-
 ### Prerequisites
 
 You need git to clone the angular-seed repository. You can get git from

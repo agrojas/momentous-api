@@ -13,8 +13,13 @@ import com.agrojas.exception.InvalidPriceException;
 import com.agrojas.exception.InvalidRankingException;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+/**
+ * @author agrojas
+ *
+ */
 public class Menu {
 
+	private int id;
 	private String name;
 	private String description;
 	private List<String> days;
@@ -28,6 +33,7 @@ public class Menu {
 	private int ranking;
 
 	public Menu() {
+		this.id = 0;
 		this.name = "";
 		this.description = "";
 		this.price = null;
@@ -37,6 +43,31 @@ public class Menu {
 		this.timeFrom = null;
 		this.timeTo = null;
 		this.ranking = 1;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	/**
+	 * @param timeFrom
+	 */
+	public void setTimeFrom(Time timeFrom) {
+		this.timeFrom = timeFrom;
+	}
+
+	/**
+	 * @param timeTo
+	 */
+	public void setTimeTo(Time timeTo) {
+		this.timeTo = timeTo;
 	}
 
 	/**

@@ -96,6 +96,7 @@ public class MenuMock {
 		List<Menu> mockList = new ArrayList<Menu>();
 		for (int i = 0; i < numMocks; i++) {
 			menu = new Menu();
+			menu.setId(i+1);
 			menu.setName(getName(i));
 			menu.setDescription(getDescription(i));
 			menu.setPrice(getPrice(i));
