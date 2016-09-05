@@ -20,42 +20,51 @@
 				<div class="panel-heading">
 					<label>Search: <input ng-model="vm.filterMenu"></label>
 				</div>
-				
+
 				<!-- Table -->
 				<div class="panel-group" id="accordion" role="tablist"
 					aria-multiselectable="true">
-					<div class="panel panel-default" ng-repeat="menu in vm.menus | filter:vm.filterMenu track by $index ">
+					<div class="panel panel-default"
+						ng-repeat="menu in vm.menus track by $index ">
 						<div class="panel-heading" role="tab" id="headingOne">
 							<h4 class="panel-title">
 								<a role="button" data-toggle="collapse" data-parent="#accordion"
 									href="#menu-{{$index}}" aria-expanded="false"
 									aria-controls="menu-{{$index}}">
-										<h2>{{menu.name}}</h2>
+									<h2>{{menu.name}}</h2>
 								</a>
 								<div class="row">
-								  <div class="col-md-8">
-								  	<div><b>Price:</b> {{menu.price.currency}}{{menu.price.value}}</div>
-									<div><b>From:</b> {{menu.dateFrom}}</div>
-									<div><b>To:</b> {{menu.dateTo}}</div>
-								  </div>
-								  <div class="col-md-4">
-								  	<div>
-									<button type="button" class="btn btn-info"
+									<div class="col-md-8">
+										<div>
+											<b>Price:</b> {{menu.price.currency}}{{menu.price.value}}
+										</div>
+										<div>
+											<b>From:</b> {{menu.dateFrom}}
+										</div>
+										<div>
+											<b>To:</b> {{menu.dateTo}}
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div>
+											<button type="button" class="btn btn-info"
 												ng-click="vm.edit()">Edit</button>
-										<button type="button" class="btn btn-danger"
+											<button type="button" class="btn btn-danger"
 												ng-click="vm.delet()">Delete</button>
+										</div>
+									</div>
 								</div>
-								  </div>
-								</div>
-								
-								
 							</h4>
 						</div>
 						<div id="menu-{{$index}}" class="panel-collapse collapse"
 							role="tabpanel" aria-labelledby="headingOne">
 							<div class="panel-body">
-								<div class="row"><b>Description:</b>{{menu.description}}</div>
-								<div class="row"><b>Days:</b>{{menu.days}}</div>
+								<div class="row">
+									<b>Description:</b>{{menu.description}}
+								</div>
+								<div class="row">
+									<b>Days:</b>{{menu.days}}
+								</div>
 							</div>
 						</div>
 					</div>

@@ -9,7 +9,7 @@ angular.module('momentous-app.menu', ['ngRoute'])
         });
     }])
     .service('MenuService', ['$http','$q', function ($http, $q) {
-        var url = "http://localhost:8080/menus";
+        var url = "http://momentous-api.herokuapp.com/menus";
 
         
         this.getMenus = function () {

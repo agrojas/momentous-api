@@ -10,7 +10,14 @@ To get you started you can simply clone the momentous-api repository and install
 
 ### Use API
 
-You can use API in [momentous-api.herokuapp.com/menus] (momentous-api.herokuapp.com/menus) 
+You can use API in [momentous-api.herokuapp.com](momentous-api.herokuapp.com) 
+
+Group By options:
+```
+momentous-api.herokuapp.com/menus?groupBy=<field>
+<field> = [price]
+
+```
 
 
 ### Prerequisites
@@ -46,14 +53,20 @@ mvn compile
 Run maven command
 
 ```
-mvn install
+mvn clean install
+```
+### Run
+
+Run maven command
+
+```
+mvn spring-boot:run
 ```
 
 ## Directory Layout
 
 ```
-   .
-   |-src
+|-src
    |---main
    |-----java
    |-------com
@@ -65,7 +78,9 @@ mvn install
    |-----------service
    |-----resources
    |-------static
-   |-------templates
+   |---------css
+   |---------js
+   |-----------menu
    |---test
    |-----java
    |-------com
@@ -83,10 +98,15 @@ mvn install
    |-------maven
    |---------com.agrojas
    |-----------momentous-api
+   |-----static
+   |-------css
+   |-------js
+   |---------menu
    |---generated-sources
    |-----annotations
    |---generated-test-sources
    |-----test-annotations
+   |---maven-archiver
    |---maven-status
    |-----maven-compiler-plugin
    |-------compile
@@ -97,6 +117,7 @@ mvn install
    |---test-classes
    |-----com
    |-------agrojas
+
 
 ```
 
